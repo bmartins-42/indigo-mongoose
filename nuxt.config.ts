@@ -27,7 +27,8 @@ export default defineNuxtConfig({
     },
   },
   build: {
-    transpile: ["contentful"],
+    transpile:
+      process.env.npm_lifecycle_script === "nuxt dev" ? [] : ["contentful"],
     postcss: {
       postcssOptions: {
         plugins: {
