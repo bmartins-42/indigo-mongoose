@@ -16,7 +16,9 @@ const { data: product } = await useAsyncData(
 );
 
 const description = computed(() =>
-  product.value ? marked.parse(product.value?.fields?.description) : null
+  product.value?.fields?.description
+    ? marked.parse(product.value.fields.description)
+    : null
 );
 
 function handleAddToCart(product) {
